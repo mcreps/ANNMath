@@ -1,4 +1,5 @@
 import ActivationFunction.Sigmoid;
+import NeuralNet.Network;
 import Utils.DisplayUtil;
 import Utils.NeuronUtil;
 
@@ -50,6 +51,8 @@ public class Runnable {
 	}
 	
 	public static void main(String[] args) {
+	
+		Network network = new Network(2, 3, 1, new Sigmoid());
 		
 		double inputs[] = {1,1};		
 		double outputs[] = {0.0};
