@@ -52,7 +52,14 @@ public class Runnable {
 	
 	public static void main(String[] args) {
 	
-		Network network = new Network(2, 3, 1, new Sigmoid());
+		Network network = new Network(INPUT_NEURON_COUNT, HIDDEN_NEURON_COUNT, OUTPUT_NEURON_COUNT, new Sigmoid());
+		network.setInputs(new double[][] {{1,1}});
+		network.setOutputs(new double[] {0});
+		network.setInputTotHiddenWeights(new double[][] { {.8, .4, .3}, {.2,.9,.5} });
+		network.setHiddenToOuterWeight(new double[][] {{.3, .5, .9}});
+		network.setLasthiddenToOuterWeight(network.getHiddenToOuterWeight());
+
+		
 		
 		double inputs[] = {1,1};		
 		double outputs[] = {0.0};

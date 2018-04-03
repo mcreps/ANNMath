@@ -1,5 +1,7 @@
 package NeuralNet;
 
+import java.util.Arrays;
+
 import ActivationFunction.ActivationFunction;
 
 public class Network {
@@ -9,8 +11,8 @@ public class Network {
 	private int outputNeuronCount;	
 	private ActivationFunction activationFunction = null;
 	
-	double inputs[] = {1,1};		
-	double outputs[] = {0.0};
+	double inputs[][] = new double[0][0];		
+	double outputs[] = new double[0];
 	double inputTotHiddenWeights[][] = new double[0][0];
 	double hiddenToOuterWeight[][] = new double[0][0];
 	double lasthiddenToOuterWeight[][] = new double[0][0];
@@ -62,6 +64,47 @@ public class Network {
 		this.activationFunction = activationFunction;
 	}
 
+	public double[][] getInputs() {
+		return inputs;
+	}
+
+	public void setInputs(double[][] inputs) {
+		this.inputs = inputs;
+	}
+
+	public double[] getOutputs() {
+		return outputs;
+	}
+
+	public void setOutputs(double[] outputs) {
+		this.outputs = outputs;
+	}
+
+	public double[][] getInputTotHiddenWeights() {
+		return inputTotHiddenWeights;
+	}
+
+	public void setInputTotHiddenWeights(double[][] inputTotHiddenWeights) {
+		this.inputTotHiddenWeights = inputTotHiddenWeights;
+	}
+
+	public double[][] getHiddenToOuterWeight() {
+		return hiddenToOuterWeight;
+	}
+
+	public void setHiddenToOuterWeight(double[][] hiddenToOuterWeight) {
+		this.hiddenToOuterWeight = hiddenToOuterWeight;
+	}
+
+	public double[][] getLasthiddenToOuterWeight() {
+		return lasthiddenToOuterWeight;
+	}
+
+
+	public void setLasthiddenToOuterWeight(double[][] lasthiddenToOuterWeight) {
+		this.lasthiddenToOuterWeight = lasthiddenToOuterWeight;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -73,7 +116,18 @@ public class Network {
 		builder.append(outputNeuronCount);
 		builder.append(", activationFunction=");
 		builder.append(activationFunction);
+		builder.append(", inputs=");
+		builder.append(Arrays.toString(inputs));
+		builder.append(", outputs=");
+		builder.append(Arrays.toString(outputs));
+		builder.append(", inputTotHiddenWeights=");
+		builder.append(Arrays.toString(inputTotHiddenWeights));
+		builder.append(", hiddenToOuterWeight=");
+		builder.append(Arrays.toString(hiddenToOuterWeight));
+		builder.append(", lasthiddenToOuterWeight=");
+		builder.append(Arrays.toString(lasthiddenToOuterWeight));
 		builder.append("]");
 		return builder.toString();
 	}
+	
 }
